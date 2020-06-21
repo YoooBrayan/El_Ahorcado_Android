@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         contenedorPelicula = (RelativeLayout) findViewById(R.id.contenedorPelicula);
+        final RelativeLayout.LayoutParams rp= new RelativeLayout.LayoutParams(75, 75);
 
         final Juego juego = new Juego();
         final String peliculaA = juego.inicio();
@@ -175,12 +176,11 @@ public class MainActivity extends AppCompatActivity {
 
                             for(int j=0; j<intentosA; j++){
 
-                                System.out.println(letras[i] + " --- " + letrasAcertadas.get(j));
+                                //System.out.println(letras[i] + " --- " + letrasAcertadas.get(j));
 
                                 if(((int) letras[i]) == letrasAcertadas.get(j)){
                                     letra.setText(String.valueOf(letras[i]));
                                     letra.setBackgroundColor(Color.GRAY);
-                                    //letra.setBackgroundColor(Color.RED);
                                     letra.setTextColor(Color.BLACK);
                                     letra.setId(1);
                                 }else if(((int) letras[i]) == 32){
@@ -188,6 +188,11 @@ public class MainActivity extends AppCompatActivity {
                                 }else if(letra.getId()!=1){
                                     letra.setBackgroundColor(Color.GRAY);
                                 }
+
+                                if(((int) letras[i]) != 32){
+                                    letra.setBackgroundColor(Color.GRAY);
+                                }
+
                             }
 
                             contenedorPelicula.addView(letra);
@@ -206,34 +211,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        /*Button bn = new Button(this);
-        RelativeLayout.LayoutParams bns = new RelativeLayout.LayoutParams(
-            RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT
-        );
-
-        bns.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        bns.setMargins(0, 55, 0, 0);
-        bn.setLayoutParams(bns);
-        bn.setText("A");
-
-        Button bn1 = new Button(this);
-        RelativeLayout.LayoutParams bns1 = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT
-        );
-
-        bns1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        bns1.setMargins(135, 55, 0, 0);
-        bn1.setLayoutParams(bns1);
-        bn1.setText("B");
-
-        relativeLayout.addView(bn);
-        relativeLayout.addView(bn1);*/
-
     }
 
-    public static void mostrarfrase(){
-
-    }
  }
 
 
